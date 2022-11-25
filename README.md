@@ -36,7 +36,7 @@ This will install all the packages specified in the requirement files and will u
 
 First you need to start the server
 ```bash
-python main:app --reload
+uvicorn main:app --reload
 ```
 
 Second start streamlit
