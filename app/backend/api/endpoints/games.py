@@ -69,7 +69,6 @@ async def modify_game_by_id(id: str, game: Game) -> dict:
     })
     if not updated_data:
         raise HTTPException(status_code=404, detail="Item not found")
-
     return game
 
 
