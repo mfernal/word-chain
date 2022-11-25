@@ -48,9 +48,35 @@ streamlit run app/frontend/interface.py
 - Tests
 - Score function
 - Authorization method to check the user identity
-- Timeout
-- Possiblity of finishing the game
+- Possiblity of finishing the game and timeout
+- Validate if it is an existing word
+- Validate if it is only one word
+- Comments
+- Button to return the history
 
-### How would you have done it?
-- 
+### Things to improve
+- The way I get the words. It's really rudimentary and can take a while.
+
+### Calirications
+
+I would have performed the tests using pytest. I would have made fixtures for the creation of users and games. I would have tested the limit cases such as, for example, that only one word is sent per item, that the word validator is correct, that the user who makes the call is the correct one, etc.
+
+For the score function a method that would count the vowels and consonants in a linear way, something similar to:
+
+```python
+vowels = [a,e,i,o,u]
+score = 0
+scores_vowels = [2 for letter in list(word) if letter in vowels]
+scores_consonants = [1 for letter in list(word) if letter not in vowels]
+score = sum(scores_vowels) + sum(scores_consonants)
+```
+
+For authorization I would have done the following: 
+- The user inputs a username and password into your app’s UI
+- The app sends that username and password to a specific auth endpoint in our API (called /token)
+- If the password and username check out, the API send back a token (along with an expiry date) back to the app
+- The app stores that token in the app state
+For every subsequent API call, the app sends Authorization with a value of Bearer and the token, as well as the request to make the API call
+
+
 
