@@ -44,7 +44,7 @@ brew services start mongodb/brew/mongodb-community
 Create the wordchain database and the collections games and users (I recommend using mongo compass for this step)
 
 
-### Execute
+## Execute
 
 First you need to start the server
 ```bash
@@ -56,7 +56,7 @@ Second start streamlit
 streamlit run app/frontend/interface.py
 ```
 
-### Things that are not done
+## Things that are not done
 - Tests
 - Score function
 - Authorization method to check the user identity
@@ -66,10 +66,10 @@ streamlit run app/frontend/interface.py
 - Comments
 - Button to return the history
 
-### Things to improve
+## Things to improve
 - The way I get the words. It's really rudimentary and can take a while.
 
-### Calirications
+## Calirications
 
 I would have performed the tests using pytest. I would have made fixtures for the creation of users and games. I would have tested the limit cases such as, for example, that only one word is sent per item, that the word validator is correct, that the user who makes the call is the correct one, etc.
 
