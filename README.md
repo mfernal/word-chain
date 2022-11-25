@@ -31,6 +31,18 @@ pip-sync requirements.txt dev-requirements.txt
 
 This will install all the packages specified in the requirement files and will uninstall the ones that are not.
 
+### MongoDB
+Install mongoDB
+```
+brew install mongodb-community
+```
+
+```
+brew services start mongodb/brew/mongodb-community
+```
+
+Create the wordchain database and the collections games and users (I recommend using mongo compass for this step)
+
 
 ### Execute
 
@@ -66,10 +78,12 @@ For the score function a method that would count the vowels and consonants in a 
 ```python
 vowels = [a,e,i,o,u]
 score = 0
-scores_vowels = [2 for letter in list(word) if letter in vowels]
-scores_consonants = [1 for letter in list(word) if letter not in vowels]
+score_vowels = [2 for letter in list(word) if letter in vowels]
+score_consonants = [1 for letter in list(word) if letter not in vowels]
 score = sum(scores_vowels) + sum(scores_consonants)
 ```
+And to count the time and see if it had taken less than 15s I had the updated_time field, which I could compare with the current time and apply the multiplier
+
 
 For authorization I would have done the following: 
 - The user inputs a username and password into your app’s UI
@@ -78,5 +92,10 @@ For authorization I would have done the following:
 - The app stores that token in the app state
 For every subsequent API call, the app sends Authorization with a value of Bearer and the token, as well as the request to make the API call
 
+For the ability to terminate I had a status within the line item data model which was "terminated".
 
+And for the timeout my idea was to use some python library that follows the cron style and set a timer that would fire a method after two minutes and every time the endpoint /play was called it would restart again.
 
+To validate if it is an existing word, I could have used the ntlk library where there is a dictionary of words that could tell me if it is a valid word or not.
+
+Finally, for the history button, I had the field inside the schema of the game collection where I was saving the different words.
