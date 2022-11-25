@@ -1,32 +1,6 @@
 # WORD CHAIN
 
-This is Python repo template.
-
-## GitHub Workflow
-
-Defined in [workflow.yaml](.github/workflow/workflow.yaml)
-
-Just change the name of the `<image name>`
-
-## pyenv?
-
-If you use `pyenv`, create a virtualenv
-
-```bash
-pyenv virtualenv 3.10 <venv name>
-```
-
-or load existing one
-
-```bash
-pyenv local <venv name>
-```
-
-Get `<ven name>` with:
-
-```bash
-pyenv which python
-```
+Game to play word chain using a server
 
 ## Requirements.txt
 
@@ -58,23 +32,25 @@ pip-sync requirements.txt dev-requirements.txt
 This will install all the packages specified in the requirement files and will uninstall the ones that are not.
 
 
-## Docker Image
+### Execute
 
-The image gets built and pushed automatically to the ACR when pushed to GitHub, but for local testing, continue reading.
-
-
-### Build Image
-
-In order to build the image manually, run
-
+First you need to start the server
 ```bash
-IMAGE_NAME=<image name>
-TAG=1
-docker build -t $IMAGE_NAME:$TAG .
+python main:app --reload
 ```
 
-### Run Image
-
+Second start streamlit
 ```bash
-docker run $IMAGE_NAME:$TAG hello
+streamlit run app/frontend/interface.py
 ```
+
+### Things that are not done
+- Tests
+- Score function
+- Authorization method to check the user identity
+- Timeout
+- Possiblity of finishing the game
+
+### How would you have done it?
+- 
+
