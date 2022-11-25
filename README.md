@@ -41,7 +41,7 @@ brew install mongodb-community
 brew services start mongodb/brew/mongodb-community
 ```
 
-Create the wordchain database and the collections games and users (I recommend using mongo compass for this step)
+Create the **wordchain** database and the collections **games** and **users** (I recommend using mongo compass for this step)
 
 
 ## Execute
